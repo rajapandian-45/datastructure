@@ -1,0 +1,94 @@
+public class linked_ex {
+Node head;
+class Node{
+int data;
+Node next;
+
+Node(int val){
+data=val;
+next=null;
+}
+}
+public linked_ex() {
+head=null;
+}
+public void  insertAtBegin(int val)
+{
+Node newNode=new Node(val);
+if(head==null)
+{
+head=newNode;
+
+}
+else {
+Node temp=head;
+newNode.next=temp;
+   head=newNode;
+}
+}
+public void display()
+{
+Node temp=head;
+while(temp!=null)
+{
+System.out.print(+temp.data+" ");
+temp=temp.next;
+}
+}
+public void insertAtAnyPo(int pos, int val) {
+Node newnode=new Node(val);
+Node temp=head;
+for(int i=1;i<pos-1;i++) {
+temp=temp.next;
+}
+newnode.next=temp.next;
+temp.next=newnode;
+       
+   
+}
+public void deleteAtBegin() {
+head=head.next;
+}
+public void viewposition(int mypos) {
+Node temp=head;
+System.out.println("head value"+temp.data);
+for(int i=0;i<mypos-1;i++) {
+temp=temp.next;
+}
+System.out.println("Current Position Value"+temp.next);
+}
+
+  public  void deleteAtPosition(int delpo) {
+  Node temp=head;
+  Node dtemp=null;
+ 
+  for(int i=0;i<=delpo-1;i++)
+  {
+  dtemp=temp;
+  temp=temp.next;
+  }
+  dtemp.next=temp.next;
+  System.out.println("del pos"+temp.next);
+  System.out.println("temppos"+dtemp.next);
+  }
+ }
+
+
+public class link {
+public static void main(String[]args) {
+linked_ex l=new linked_ex();
+
+l.insertAtBegin(10);
+l.insertAtBegin(20);
+l.insertAtBegin(30);
+l.insertAtBegin(40);
+l.insertAtBegin(50);
+l.insertAtBegin(60);
+
+l.deleteAtBegin();
+l.deleteAtPosition(5);
+l.insertAtBegin(777);
+l.insertAtAnyPo(4,333);
+l.display();
+}
+}
