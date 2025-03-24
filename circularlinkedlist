@@ -1,0 +1,92 @@
+public class circular_linked {
+
+Node last;
+class Node
+{
+int data;
+Node next=null;
+Node(int val)
+{
+data=val;
+next=null;
+}
+}
+circular_linked(){
+last=null;
+}
+public void insertAtBegin(int val) {
+Node newnode=new Node(val);
+if(last==null)
+{
+last=newnode;
+last.next=last;
+}
+else
+{
+Node temp=last.next;
+last.next=newnode;
+newnode.next=temp;
+}
+}
+public void display()
+{
+Node temp=last.next;
+while(temp!=last)
+{
+System.out.print(temp.data+" ");
+temp=temp.next;
+}
+System.out.println(temp.data);
+
+}
+public void insertAtEnd(int val) {
+Node newnode=new Node(val);
+if(last==null)
+{
+last=newnode;
+last.next=last;
+}
+else
+{
+Node temp=last.next;
+last.next=newnode;
+newnode.next=temp;
+last=newnode;
+}
+}
+public void deleteAtBegin()
+{
+Node temp=last.next;
+last.next=last.next.next;
+temp.next=null;
+}
+public void deleteAtEnd()
+{
+Node temp=last.next;
+while(temp!=last)
+{
+//System.out.println(temp.data+" ");
+temp=temp.next;
+}
+System.out.println(temp.data);
+}
+}
+
+public class circular_access {
+public static void main(String[]args) {
+circular_linked cl=new circular_linked();
+cl.insertAtBegin(77);
+cl.insertAtBegin(66);
+cl.insertAtBegin(55);
+cl.insertAtBegin(44);
+cl.insertAtBegin(33);
+cl.insertAtEnd(7);
+cl.insertAtEnd(3);
+cl.insertAtEnd(31);
+cl.deleteAtBegin();
+cl.deleteAtEnd();
+cl.display();
+
+
+}
+}
