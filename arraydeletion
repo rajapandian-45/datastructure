@@ -1,0 +1,23 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class arraydelete {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+ int[] arr=new int[10];
+ System.out.println("enter your array");
+ int size=sc.nextInt();
+ for(int i=0;i<size;i++) {
+	 arr[i]=sc.nextInt();
+	 System.out.println(arr[i]);
+ }
+ System.out.println("enter the poosition to delete");
+ int delpos=sc.nextInt();
+ System.out.println(arr[3]);
+ for(int mypos=delpos-1;mypos<size;mypos++) {
+	 arr[mypos]=arr[mypos+1];
+ }
+ size--;
+ System.out.print(Arrays.toString(arr));
+ }
+	}
