@@ -1,0 +1,116 @@
+public class copydoublelist {
+
+    Node head;
+
+    static class Node {
+
+        int data;
+
+        Node next;
+
+        Node prev;
+
+        Node(int data) {
+
+            this.data = data;
+
+            this.next = null;
+
+            this.prev = null;
+
+        }
+
+    }
+
+    public void insert(int data) {
+
+        Node newNode = new Node(data);
+
+        if (head == null) {
+
+            head = newNode;
+
+        } else {
+
+            Node temp = head;
+
+            while (temp.next != null) {
+
+                temp = temp.next;
+
+            }
+
+            temp.next = newNode;
+
+            newNode.prev = temp;
+
+        }
+
+    }
+
+    public void printList(Node node) {
+
+        Node temp = node;
+
+        while (temp != null) {
+
+            System.out.print(temp.data + " ");
+
+            temp = temp.next;
+
+        }
+
+        System.out.println();
+
+    }
+
+    public copydoublelist copy() {
+
+    	copydoublelist newList = new copydoublelist();
+
+        Node current = this.head;
+
+        while (current != null) {
+
+            newList.insert(current.data);  
+
+            current = current.next;
+
+        }
+
+        return newList;
+
+    }
+
+    public static void main(String[] args) {
+
+    	copydoublelist originalList = new copydoublelist();
+
+        originalList.insert(7);
+
+        originalList.insert(8);
+
+        originalList.insert(31);
+
+        originalList.insert(33);
+
+        System.out.println("Original List:");
+
+        originalList.printList(originalList.head);
+
+        copydoublelist copiedList = originalList.copy();
+
+        System.out.println("Copied List:");
+
+        copiedList.printList(copiedList.head);
+
+    }
+
+}
+
+
+
+
+
+
+
